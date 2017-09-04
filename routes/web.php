@@ -124,8 +124,8 @@ Route::post('riset/roadmap/edit/{id}', 'RisetRoadmapController@update');
 Route::get('riset/roadmap/delete/{id}', 'RisetRoadmapController@destroy');
 Route::post('riset/anggaran', 'RisetController@anggaran');
 Route::get('riset/get-anggaran/{id}', 'RisetController@getAnggaran');
-Route::get('riset/laporan/{id}', 'RisetController@getLaporan');
-Route::post('riset/laporan/{id}', 'RisetController@postLaporan');
+Route::get('riset/create/laporan/{id}', 'RisetController@getLaporan');
+Route::post('riset/submit/laporan/{id}', 'RisetController@postLaporan');
 //Regulasi
 Route::resource('regulasi', 'RegulasiController');
 Route::get('regulasi/delete/{id}', 'RegulasiController@destroy');

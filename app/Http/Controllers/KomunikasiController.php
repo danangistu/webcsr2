@@ -193,11 +193,12 @@ class KomunikasiController extends AdminController
         ]);
       }
     }
-    public function getLaporan($id)
+    public function getLaporan(Request $request,$id)
     {
         $model  = $this->model->findOrFail($id);
         $lapset = LaporanSetting::firstOrFail();
         return view($this->view.'laporan',[
+            'judul'=>$request->judul,
             'model'=> $model,
             'timeline'=>$this->timeline->where('id','=',$model->timeline_id)->firstOrFail(),
             'latar'=>$this->latar->where('id','=',$model->latar_belakang_id)->firstOrFail(),

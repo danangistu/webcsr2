@@ -8,5 +8,5 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
   extraPlugins : 'uicolor',
-  config.height = '500px';
+  config.height = '400px';
 };
