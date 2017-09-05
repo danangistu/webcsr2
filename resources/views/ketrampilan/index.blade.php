@@ -27,6 +27,8 @@
             </div>
             <div class="panel-body">
                 <a href="{{ url('ketrampilan/create') }}" class="btn btn-primary"><span class="fa fa-plus"></span> Tambah Data</a>
+                <a href="{{ url('ketrampilan/print') }}" class="btn btn-inverse"><span class="fa fa-print"></span> Print</a>
+                <a href="{{ url('ketrampilan/export') }}" class="btn btn-inverse"><span class="fa fa-download"></span> Export</a>
             </div>
             <div class="panel-body">
                 @include('common.alert')

@@ -220,4 +220,7 @@ class RisetController extends AdminController
           return redirect('pengajuan-laporan')->with('error', $e->getMessage());
       }
     }
+    public function export(){
+        $this->handleExport($this->model, 'Data Riset dan Pengembangan');
+    }
 }

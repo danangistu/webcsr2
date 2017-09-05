@@ -220,4 +220,7 @@ class BencanaController extends AdminController
           return redirect('pengajuan-laporan')->with('error', $e->getMessage());
       }
     }
+    public function export(){
+        $this->handleExport($this->model, 'Data Pelayanan Bantuan Bencana Alam');
+    }
 }

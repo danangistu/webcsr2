@@ -19,6 +19,8 @@ Auth::routes();
 Route::get('/', 'DashboardController@index');
 Route::get('logout', 'Auth\LoginController@logout');
 //Sarana dan Prasarana
+Route::get('sarana/export', 'SaranaController@export');
+Route::get('sarana/print', 'SaranaController@print');
 Route::resource('sarana', 'SaranaController');
 Route::get('sarana/delete/{id}', 'SaranaController@destroy');
 Route::post('sarana/anggaran', 'SaranaController@anggaran');
@@ -26,6 +28,8 @@ Route::get('sarana/get-anggaran/{id}', 'SaranaController@getAnggaran');
 Route::post('sarana/create/laporan/{id}', 'SaranaController@getLaporan');
 Route::post('sarana/submit/laporan', 'SaranaController@postLaporan');
 //Pelayanan Kesehatan
+Route::get('kesehatan/export', 'KesehatanController@export');
+Route::get('kesehatan/print', 'KesehatanController@print');
 Route::resource('kesehatan', 'KesehatanController');
 Route::get('kesehatan/delete/{id}', 'KesehatanController@destroy');
 Route::get('kesehatan/pengobatan/{id}', 'PengobatanController@index');
@@ -39,6 +43,8 @@ Route::get('kesehatan/get-anggaran/{id}', 'KesehatanController@getAnggaran');
 Route::post('kesehatan/create/laporan/{id}', 'KesehatanController@getLaporan');
 Route::post('kesehatan/submit/laporan/{id}', 'KesehatanController@postLaporan');
 //Pelayanan Pendidikan
+Route::get('pendidikan/export', 'PendidikanController@export');
+Route::get('pendidikan/print', 'PendidikanController@print');
 Route::resource('pendidikan', 'PendidikanController');
 Route::get('pendidikan/delete/{id}', 'PendidikanController@destroy');
 Route::get('pendidikan/penerima/{id}', 'PenerimaController@index');
@@ -53,6 +59,8 @@ Route::get('pendidikan/get-anggaran/{id}', 'PendidikanController@getAnggaran');
 Route::post('pendidikan/create/laporan/{id}', 'PendidikanController@getLaporan');
 Route::post('pendidikan/submit/laporan/{id}', 'PendidikanController@postLaporan');
 //Pelayanan Bencana Alam
+Route::get('bencana/export', 'BencanaController@export');
+Route::get('bencana/print', 'BencanaController@print');
 Route::resource('bencana', 'BencanaController');
 Route::get('bencana/delete/{id}', 'BencanaController@destroy');
 Route::get('bencana/pemberian/{id}', 'PemberianController@index');
@@ -66,6 +74,8 @@ Route::get('bencana/get-anggaran/{id}', 'BencanaController@getAnggaran');
 Route::post('bencana/create/laporan/{id}', 'BencanaController@getLaporan');
 Route::post('bencana/submit/laporan/{id}', 'BencanaController@postLaporan');
 //Komunikasi Sosial
+Route::get('komunikasi/export', 'KomunikasiController@export');
+Route::get('komunikasi/print', 'KomunikasiController@print');
 Route::resource('komunikasi', 'KomunikasiController');
 Route::get('komunikasi/delete/{id}', 'KomunikasiController@destroy');
 Route::post('komunikasi/anggaran', 'KomunikasiController@anggaran');
@@ -73,6 +83,8 @@ Route::get('komunikasi/get-anggaran/{id}', 'KomunikasiController@getAnggaran');
 Route::post('komunikasi/create/laporan/{id}', 'KomunikasiController@getLaporan');
 Route::post('komunikasi/submit/laporan/{id}', 'KomunikasiController@postLaporan');
 //Partisipasi Hari Besar
+Route::get('hari-besar/export', 'HariBesarController@export');
+Route::get('hari-besar/print', 'HariBesarController@print');
 Route::resource('hari-besar', 'HariBesarController');
 Route::get('hari-besar/delete/{id}', 'HariBesarController@destroy');
 Route::post('hari-besar/anggaran', 'HariBesarController@anggaran');
@@ -80,6 +92,8 @@ Route::get('hari-besar/get-anggaran/{id}', 'HariBesarController@getAnggaran');
 Route::post('hari-besar/create/laporan/{id}', 'HariBesarController@getLaporan');
 Route::post('hari-besar/submit/laporan/{id}', 'HariBesarController@postLaporan');
 //Partisipasi Kegiatan Masyarakat
+Route::get('kegiatan-masyarakat/export', 'KegiatanController@export');
+Route::get('kegiatan-masyarakat/print', 'KegiatanController@print');
 Route::resource('kegiatan-masyarakat', 'KegiatanController');
 Route::get('kegiatan-masyarakat/delete/{id}', 'KegiatanController@destroy');
 Route::post('kegiatan-masyarakat/anggaran', 'KegiatanController@anggaran');
@@ -87,6 +101,8 @@ Route::get('kegiatan-masyarakat/get-anggaran/{id}', 'KegiatanController@getAngga
 Route::post('kegiatan-masyarakat/create/laporan/{id}', 'KegiatanController@getLaporan');
 Route::post('kegiatan-masyarakat/submit/laporan/{id}', 'KegiatanController@postLaporan');
 //Pelayanan Bantuan Modal
+Route::get('modal/export', 'ModalController@export');
+Route::get('modal/print', 'ModalController@print');
 Route::resource('modal', 'ModalController');
 Route::get('modal/delete/{id}', 'ModalController@destroy');
 Route::get('modal/roadmap/{id}', 'RoadmapController@index');
@@ -100,6 +116,8 @@ Route::get('modal/get-anggaran/{id}', 'ModalController@getAnggaran');
 Route::post('modal/create/laporan/{id}', 'ModalController@getLaporan');
 Route::post('modal/submit/laporan/{id}', 'ModalController@postLaporan');
 //Pelayanan Ketrampilan
+Route::get('ketrampilan/export', 'KetrampilanController@export');
+Route::get('ketrampilan/print', 'KetrampilanController@print');
 Route::resource('ketrampilan', 'KetrampilanController');
 Route::get('ketrampilan/delete/{id}', 'KetrampilanController@destroy');
 Route::post('ketrampilan/anggaran', 'KetrampilanController@anggaran');
@@ -107,6 +125,8 @@ Route::get('ketrampilan/get-anggaran/{id}', 'KetrampilanController@getAnggaran')
 Route::get('ketrampilan/create/laporan/{id}', 'KetrampilanController@getLaporan');
 Route::post('ketrampilan/submit/laporan/{id}', 'KetrampilanController@postLaporan');
 //Pelayanan Pemasaran
+Route::get('pemasaran/export', 'PemasaranController@export');
+Route::get('pemasaran/print', 'PemasaranController@print');
 Route::resource('pemasaran', 'PemasaranController');
 Route::get('pemasaran/delete/{id}', 'PemasaranController@destroy');
 Route::post('pemasaran/anggaran', 'PemasaranController@anggaran');
@@ -114,6 +134,8 @@ Route::get('pemasaran/get-anggaran/{id}', 'PemasaranController@getAnggaran');
 Route::get('pemasaran/create/laporan/{id}', 'PemasaranController@getLaporan');
 Route::post('pemasaran/submit/laporan/{id}', 'PemasaranController@postLaporan');
 //Pelayanan Bantuan Modal
+Route::get('riset/export', 'RisetController@export');
+Route::get('riset/print', 'RisetController@print');
 Route::resource('riset', 'RisetController');
 Route::get('riset/delete/{id}', 'RisetController@destroy');
 Route::get('riset/roadmap/{id}', 'RisetRoadmapController@index');
@@ -143,6 +165,8 @@ Route::get('laporan-pendanaan', 'LaporanController@index');
 Route::get('laporan-setting', 'LaporanSettingController@index');
 Route::post('laporan-setting', 'LaporanSettingController@store');
 Route::get('pengajuan-laporan', 'PengajuanLaporanController@index');
+Route::get('pengajuan-laporan/dmr/{id}', 'PengajuanLaporanController@downloadDMR');
+Route::get('pengajuan-laporan/tor/{id}', 'PengajuanLaporanController@downloadTOR');
 Route::get('pengajuan-laporan/revisi/{id}', 'PengajuanLaporanController@getRevisi');
 Route::get('pengajuan-laporan/revisi/fix/{id}', 'PengajuanLaporanController@getRevisiFix');
 

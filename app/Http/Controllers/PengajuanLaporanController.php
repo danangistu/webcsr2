@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Models\PengajuanLaporan;
 use App\Models\RevisiLaporan;
+use Redirect;
 
 class PengajuanLaporanController extends AdminController
 {
@@ -41,5 +42,39 @@ class PengajuanLaporanController extends AdminController
       $model->save();
 
       return redirect('pengajuan-laporan')->with('success', 'Revisi telah diajukan.');
+  }
+  public function downloadDMR($id)
+  {
+      $laporan = $this->model->findOrFail($id);
+      $path    = $laporan->judul_laporan.' - '.date('d F Y', strtotime($laporan->created_at));
+      $phpWord = new \PhpOffice\PhpWord\PhpWord();
+      // Adding an empty Section to the document...
+      $section = $phpWord->addSection();
+      // Adding Text element to the Section having font styled by default...
+      $section->addText($laporan->dmr_cover.$laporan->dmr_bab_1.$laporan->dmr_bab_2.$laporan->dmr_bab_3.$laporan->dmr_bab_4);
+      $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'HTML');
+      try {
+          $objWriter->save(public_path('laporan/'.$path.' DMR.html'));
+      }catch (Exception $e) {
+        return redirect('pengajuan-laporan')->with('error', 'Gagal mendownload data : '.$e->getMessage());
+      }
+      return Redirect::away(url('laporan/'.$path.' DMR.html'));
+  }
+  public function downloadTOR($id)
+  {
+      $laporan = $this->model->findOrFail($id);
+      $path    = $laporan->judul_laporan.' - '.date('d F Y', strtotime($laporan->created_at));
+      $phpWord = new \PhpOffice\PhpWord\PhpWord();
+      // Adding an empty Section to the document...
+      $section = $phpWord->addSection();
+      // Adding Text element to the Section having font styled by default...
+      $section->addText($laporan->tor_cover.$laporan->tor_laporan);
+      $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'HTML');
+      try {
+        $objWriter->save(public_path('laporan/'.$path.' TOR.html'));
+      }catch (Exception $e) {
+        return redirect('pengajuan-laporan')->with('error', 'Gagal mendownload data : '.$e->getMessage());
+      }
+      return Redirect::away(url('laporan/'.$path.' TOR.html'));
   }
 }

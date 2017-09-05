@@ -49,23 +49,26 @@
                               <td>{{ $i }}</td>
                               <td>{{ $model->judul_laporan }}</td>
                               <td>{{ date("d F Y", strtotime($model->created_at)) }}</td>
-                              <td><a href="{{ url($model->type.'/laporan/'.$model->csr_id) }}" class="btn btn-primary btn-block"> Laporan</a></td>
+                              <td>
+                                  <a href="{{ url('pengajuan-laporan/dmr/'.$model->id) }}" class="btn btn-success btn-sm btn-block"><span class="fa fa-eye"></span> Laporan DMR</a>
+                                  <a href="{{ url('pengajuan-laporan/tor/'.$model->id) }}" class="btn btn-success btn-sm btn-block"><span class="fa fa-eye"></span> Laporan TOR</a>
+                              </td>
                               @if($model->approval_sps == 'pending')
-                                <td><a class="btn btn-info btn-block"> Pending</a></td>
+                                <td><a class="btn btn-info btn-sm btn-block"> Pending</a></td>
                               @elseif($model->approval_sps == 'revisi')
-                                <td><a href="{{ url('pengajuan-laporan/revisi/'.$model->id) }}" class="btn btn-warning btn-block"> Revisi</a></td>
+                                <td><a href="{{ url('pengajuan-laporan/revisi/'.$model->id) }}" class="btn btn-sm btn-warning btn-block"> Revisi</a></td>
                               @else
                                 <td><a class="btn btn-success btn-block"> Approve</a></td>
                               @endif
                               @if($model->approval_gm == 'pending')
-                                <td><a class="btn btn-info btn-block"> Pending</a></td>
+                                <td><a class="btn btn-info btn-sm btn-block"> Pending</a></td>
                               @elseif($model->approval_gm == 'revisi')
-                                <td><a href="{{ url('pengajuan-laporan/revisi/'.$model->id) }}" class="btn btn-warning btn-block"> Revisi</a></td>
+                                <td><a href="{{ url('pengajuan-laporan/revisi/'.$model->id) }}" class="btn btn-sm btn-warning btn-block"> Revisi</a></td>
                               @else
-                                <td><a class="btn btn-success btn-block btn-block"> Approve</a></td>
+                                <td><a class="btn btn-success btn-sm btn-block btn-block"> Approve</a></td>
                               @endif
                               @if($model->approval_sps == 'approve' && $model->approval_gm == 'approve')
-                                <td><a class="btn btn-primary btn-block"> Print</a></td>
+                                <td><a class="btn btn-primary btn-sm btn-block"><span class="fa fa-print"></span> Print</a></td>
                               @else
                                 <td> Tidak ada action</td>
                               @endif

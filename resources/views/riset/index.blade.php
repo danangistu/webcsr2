@@ -27,6 +27,8 @@
             </div>
             <div class="panel-body">
                 <a href="{{ url('riset/create') }}" class="btn btn-primary"><span class="fa fa-plus"></span> Tambah Data</a>
+                <a href="{{ url('riset/print') }}" class="btn btn-inverse"><span class="fa fa-print"></span> Print</a>
+                <a href="{{ url('riset/export') }}" class="btn btn-inverse"><span class="fa fa-download"></span> Export</a>
             </div>
             <div class="panel-body">
                 @include('common.alert')
