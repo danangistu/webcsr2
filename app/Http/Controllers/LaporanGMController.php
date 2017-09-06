@@ -19,7 +19,7 @@ class LaporanGMController extends AdminController
   }
   public function index()
   {
-      $model = $this->model->select('pengajuan_laporans.id','judul_laporan','csr_id','type','laporan','pengajuan_laporans.created_at','name','approval_gm')
+      $model = $this->model->select('pengajuan_laporans.id','judul_laporan','csr_id','type','dmr_cover','dmr_bab_1','dmr_bab_2','dmr_bab_3','dmr_bab_4','tor_cover','tor_laporan','pengajuan_laporans.created_at','name','approval_sps')
                 ->join('users','users.id','=','pengajuan_laporans.user_id')
                 ->orderBy('created_at','desc')->where([['approval_gm','=','pending'],['approval_sps','=','approve'],])->get();
       return view($this->view.'index',[

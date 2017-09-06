@@ -38,7 +38,7 @@
                           <th>Tanggal Pengajuan</th>
                           <th>Laporan</th>
                           <th>Approval SPS</th>
-                          <th>Approval GM</th>
+                          <th>MADM-GM</th>
                           <th>Action</th>
                       </tr>
                   </thead>
