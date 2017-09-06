@@ -74,7 +74,7 @@
     <!-- Modal content-->
     <div class="modal-content">
       <form id="formAnggaran" method="post" action="sarana/anggaran">
-        @include('includes.anggaran-popup')
+
       </form>
     </div>
   </div>
